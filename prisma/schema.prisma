@@ -26,7 +26,7 @@ model Book {
   Author   Author  @relation(fields: [authorID], references: [ID])
   ISBN     Int
   authorID Int
-  RentedBy Member  @relation(fields: [memberID], references: [ID])
+  RentedBy Member? @relation(fields: [memberID], references: [ID])
   memberID Int
   Genre    Genre[]
 }
@@ -44,3 +44,11 @@ model Genre {
   Name String
   Book Book[]
 }
+
+// Working Queries
+// SELECT "ID" FROM "Author";
+// SELECT * FROM "Author";
+// INSERT INTO "Author"("Name", "Biography") VALUES ('JKRowling', 'Writer');
+// INSERT INTO "Member"("Name", "Email", "Address") VALUES ('Norman', 'normanqian@gmail.com','2932 155th st');
+// INSERT INTO "Book"("Title", "ISBN", "authorID",  "memberID") VALUES ('Catching Fire', '1234567', '1', '1');
+// SELECT * FROM "Author";
