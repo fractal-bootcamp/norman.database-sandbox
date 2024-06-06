@@ -27,7 +27,7 @@ model Book {
   ISBN     Int
   authorID Int
   RentedBy Member? @relation(fields: [memberID], references: [ID])
-  memberID Int
+  memberID Int?
   Genre    Genre[]
 }
 
