@@ -28,9 +28,6 @@ CREATE TABLE "Member" (
     CONSTRAINT "Member_pkey" PRIMARY KEY ("ID")
 );
 
-
-INSERT INTO "Member"("Name", "Email", "Address") VALUES ('Norman', 'normanqian@gmail.com','2932 155th st');
-
 -- CreateTable
 CREATE TABLE "Genre" (
     "ID" SERIAL NOT NULL,
