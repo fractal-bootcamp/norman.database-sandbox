@@ -10,5 +10,37 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:postgres@localhost:10002"
+}
+
+model Author {
+  ID            Int    @id @default(autoincrement())
+  Name          String
+  Biography     String
+  BooksAuthored Book[]
+}
+
+model Book {
+  ID       Int     @id @default(autoincrement())
+  Title    String
+  Author   Author  @relation(fields: [authorID], references: [ID])
+  ISBN     Int
+  authorID Int
+  RentedBy Member  @relation(fields: [memberID], references: [ID])
+  memberID Int
+  Genre    Genre[]
+}
+
+model Member {
+  ID          Int    @id @default(autoincrement())
+  Name        String
+  Email       String
+  Address     String
+  BooksRented Book[]
+}
+
+model Genre {
+  ID   Int    @id @default(autoincrement())
+  Name String
+  Book Book[]
 }
